@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:progress_tracker/features/tracker/domain/entities/progress_entry.dart';
+import 'package:beardO/features/tracker/domain/entities/progress_entry.dart';
 
 abstract class ProgressState extends Equatable {
   const ProgressState();

@@ -1,4 +1,4 @@
-import 'package:progress_tracker/features/tracker/domain/entities/progress_entry.dart';
+import 'package:beardO/features/tracker/domain/entities/progress_entry.dart';
 
 class ProgressEntryModel extends ProgressEntry {
   const ProgressEntryModel({

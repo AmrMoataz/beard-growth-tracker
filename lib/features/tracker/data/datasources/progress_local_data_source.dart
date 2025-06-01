@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
-import 'package:progress_tracker/features/tracker/data/models/progress_entry_model.dart';
+import 'package:beardO/features/tracker/data/models/progress_entry_model.dart';
 
 abstract class ProgressLocalDataSource {
   Future<List<ProgressEntryModel>> getProgressEntries();

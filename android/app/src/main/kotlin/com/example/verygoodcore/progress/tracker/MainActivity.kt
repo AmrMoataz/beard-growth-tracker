@@ -1,4 +1,4 @@
-package com.example.verygoodcore.progress_tracker
+package com.example.verygoodcore.beardO
 
 import io.flutter.embedding.android.FlutterActivity
 

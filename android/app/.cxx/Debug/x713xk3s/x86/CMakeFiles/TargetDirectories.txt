@@ -1,2 +1,0 @@
-C:/Users/Amr/source/repos/Personal/progress_tracker/android/app/.cxx/Debug/x713xk3s/x86/CMakeFiles/edit_cache.dir
-C:/Users/Amr/source/repos/Personal/progress_tracker/android/app/.cxx/Debug/x713xk3s/x86/CMakeFiles/rebuild_cache.dir

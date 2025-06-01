@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:progress_tracker/core/theme/app_theme.dart';
-import 'package:progress_tracker/features/settings/domain/entities/app_settings.dart';
+import 'package:beardO/core/theme/app_theme.dart';
+import 'package:beardO/features/settings/domain/entities/app_settings.dart';
 
 class ThemeManager {
   // Convert our ThemePreference enum to Flutter's ThemeMode
@@ -21,15 +21,15 @@ class ThemeManager {
       final brightness = MediaQuery.platformBrightnessOf(context);
       // If it's system theme, determine from the platform brightness
       if (themeMode == ThemeMode.system) {
-        return brightness == Brightness.dark 
-            ? AppTheme.darkTheme 
+        return brightness == Brightness.dark
+            ? AppTheme.darkTheme
             : AppTheme.lightTheme;
       }
     }
 
     // Otherwise use the selected theme
-    return themeMode == ThemeMode.dark 
-        ? AppTheme.darkTheme 
+    return themeMode == ThemeMode.dark
+        ? AppTheme.darkTheme
         : AppTheme.lightTheme;
   }
 

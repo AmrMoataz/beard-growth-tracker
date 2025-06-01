@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:progress_tracker/core/theme/app_colors.dart';
+import 'package:beardO/core/theme/app_colors.dart';
 
 /// A beautiful animated button that shows progress and completion states
 class AnimatedProgressButton extends StatefulWidget {
@@ -10,7 +10,7 @@ class AnimatedProgressButton extends StatefulWidget {
   final bool isCompleted;
   final Color? backgroundColor;
   final Color? textColor;
-  
+
   const AnimatedProgressButton({
     Key? key,
     required this.text,
@@ -26,10 +26,11 @@ class AnimatedProgressButton extends StatefulWidget {
   State<AnimatedProgressButton> createState() => _AnimatedProgressButtonState();
 }
 
-class _AnimatedProgressButtonState extends State<AnimatedProgressButton> with SingleTickerProviderStateMixin {
+class _AnimatedProgressButtonState extends State<AnimatedProgressButton>
+    with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _scaleAnimation;
-  
+
   @override
   void initState() {
     super.initState();
@@ -37,7 +38,7 @@ class _AnimatedProgressButtonState extends State<AnimatedProgressButton> with Si
       vsync: this,
       duration: const Duration(milliseconds: 300),
     );
-    
+
     _scaleAnimation = Tween<double>(
       begin: 1.0,
       end: 0.95,
@@ -58,7 +59,7 @@ class _AnimatedProgressButtonState extends State<AnimatedProgressButton> with Si
     final theme = Theme.of(context);
     final primaryColor = widget.backgroundColor ?? theme.colorScheme.primary;
     final textColor = widget.textColor ?? Colors.white;
-    
+
     return GestureDetector(
       onTapDown: (_) {
         _animationController.forward();
@@ -83,9 +84,11 @@ class _AnimatedProgressButtonState extends State<AnimatedProgressButton> with Si
           curve: Curves.easeInOut,
           height: 56,
           decoration: BoxDecoration(
-            color: widget.isCompleted 
-                ? AppColors.success 
-                : (widget.isLoading ? primaryColor.withOpacity(0.8) : primaryColor),
+            color: widget.isCompleted
+                ? AppColors.success
+                : (widget.isLoading
+                    ? primaryColor.withOpacity(0.8)
+                    : primaryColor),
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
@@ -94,13 +97,14 @@ class _AnimatedProgressButtonState extends State<AnimatedProgressButton> with Si
                 offset: const Offset(0, 4),
               ),
             ],
-            gradient: widget.isCompleted 
-                ? null 
+            gradient: widget.isCompleted
+                ? null
                 : LinearGradient(
                     colors: [
                       primaryColor,
                       HSLColor.fromColor(primaryColor)
-                          .withLightness(HSLColor.fromColor(primaryColor).lightness * 0.8)
+                          .withLightness(
+                              HSLColor.fromColor(primaryColor).lightness * 0.8)
                           .toColor(),
                     ],
                     begin: Alignment.topLeft,
@@ -131,7 +135,8 @@ class _AnimatedProgressButtonState extends State<AnimatedProgressButton> with Si
                   color: textColor,
                   size: 24,
                 ),
-              if (!widget.isLoading && !widget.isCompleted) const SizedBox(width: 12),
+              if (!widget.isLoading && !widget.isCompleted)
+                const SizedBox(width: 12),
               if (!widget.isLoading)
                 AnimatedDefaultTextStyle(
                   duration: const Duration(milliseconds: 300),

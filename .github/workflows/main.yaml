@@ -1,4 +1,4 @@
-name: progress_tracker
+name: beardO
 
 concurrency:
   group: $-$

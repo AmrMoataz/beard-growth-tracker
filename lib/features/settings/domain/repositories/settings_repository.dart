@@ -1,4 +1,4 @@
-import 'package:progress_tracker/features/settings/domain/entities/app_settings.dart';
+import 'package:beardO/features/settings/domain/entities/app_settings.dart';
 
 abstract class SettingsRepository {
   /// Get the current app settings

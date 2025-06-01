@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
-import 'package:progress_tracker/core/error/failures.dart';
-import 'package:progress_tracker/features/tracker/data/datasources/progress_local_data_source.dart';
-import 'package:progress_tracker/features/tracker/data/models/progress_entry_model.dart';
-import 'package:progress_tracker/features/tracker/domain/entities/progress_entry.dart';
-import 'package:progress_tracker/features/tracker/domain/repositories/progress_repository.dart';
+import 'package:beardO/core/error/failures.dart';
+import 'package:beardO/features/tracker/data/datasources/progress_local_data_source.dart';
+import 'package:beardO/features/tracker/data/models/progress_entry_model.dart';
+import 'package:beardO/features/tracker/domain/entities/progress_entry.dart';
+import 'package:beardO/features/tracker/domain/repositories/progress_repository.dart';
 
 class ProgressRepositoryImpl implements ProgressRepository {
   final ProgressLocalDataSource localDataSource;

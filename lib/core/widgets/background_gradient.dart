@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:progress_tracker/core/theme/app_colors.dart';
+import 'package:beardO/core/theme/app_colors.dart';
 
 /// A beautiful animated gradient background for pages
 class BackgroundGradient extends StatelessWidget {
   final Widget child;
   final bool animate;
   final List<Color>? colors;
-  
+
   const BackgroundGradient({
     Key? key,
     required this.child,
@@ -18,22 +18,24 @@ class BackgroundGradient extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
-    
+
     // Default colors based on theme
     final defaultColors = isDark
         ? [
             AppColors.backgroundDark,
-            Color.lerp(AppColors.backgroundDark, AppColors.primary, 0.05) ?? AppColors.backgroundDark,
+            Color.lerp(AppColors.backgroundDark, AppColors.primary, 0.05) ??
+                AppColors.backgroundDark,
             AppColors.backgroundDark,
           ]
         : [
             AppColors.background,
-            Color.lerp(AppColors.background, AppColors.primary, 0.03) ?? AppColors.background,
+            Color.lerp(AppColors.background, AppColors.primary, 0.03) ??
+                AppColors.background,
             AppColors.background,
           ];
-    
+
     final gradientColors = colors ?? defaultColors;
-    
+
     return Stack(
       children: [
         // Animated background
@@ -63,17 +65,19 @@ class BackgroundGradient extends StatelessWidget {
 
 class _AnimatedGradientBackground extends StatefulWidget {
   final List<Color> colors;
-  
+
   const _AnimatedGradientBackground({required this.colors});
 
   @override
-  _AnimatedGradientBackgroundState createState() => _AnimatedGradientBackgroundState();
+  _AnimatedGradientBackgroundState createState() =>
+      _AnimatedGradientBackgroundState();
 }
 
-class _AnimatedGradientBackgroundState extends State<_AnimatedGradientBackground>
+class _AnimatedGradientBackgroundState
+    extends State<_AnimatedGradientBackground>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  
+
   @override
   void initState() {
     super.initState();
@@ -115,7 +119,7 @@ class _AnimatedGradientBackgroundState extends State<_AnimatedGradientBackground
 
 class _BackgroundPattern extends StatelessWidget {
   final bool isDark;
-  
+
   const _BackgroundPattern({required this.isDark});
 
   @override
@@ -134,7 +138,7 @@ class _BackgroundPattern extends StatelessWidget {
 
 class _PatternPainter extends CustomPainter {
   final Color color;
-  
+
   _PatternPainter({required this.color});
 
   @override
@@ -144,16 +148,16 @@ class _PatternPainter extends CustomPainter {
       ..color = color
       ..strokeWidth = 0.5
       ..style = PaintingStyle.stroke;
-    
+
     // Draw a grid pattern
     for (double i = 0; i < size.width; i += gap) {
       canvas.drawLine(Offset(i, 0), Offset(i, size.height), paint);
     }
-    
+
     for (double i = 0; i < size.height; i += gap) {
       canvas.drawLine(Offset(0, i), Offset(size.width, i), paint);
     }
-    
+
     // Draw some circles for extra visual interest
     final int numCircles = 10;
     final circleRadius = size.width / 10;
@@ -161,9 +165,10 @@ class _PatternPainter extends CustomPainter {
       ..color = color
       ..style = PaintingStyle.stroke
       ..strokeWidth = 0.3;
-      
+
     for (int i = 0; i < numCircles; i++) {
-      final double x = (i * size.width / numCircles) + (size.width / (numCircles * 2));
+      final double x =
+          (i * size.width / numCircles) + (size.width / (numCircles * 2));
       final double y = (i % 3 + 1) * size.height / 4;
       canvas.drawCircle(Offset(x, y), circleRadius, circlePaint);
     }

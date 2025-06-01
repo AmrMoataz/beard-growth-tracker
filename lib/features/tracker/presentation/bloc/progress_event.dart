@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:equatable/equatable.dart';
-import 'package:progress_tracker/features/tracker/domain/entities/progress_entry.dart';
+import 'package:beardO/features/tracker/domain/entities/progress_entry.dart';
 
 abstract class ProgressEvent extends Equatable {
   const ProgressEvent();

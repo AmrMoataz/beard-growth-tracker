@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:progress_tracker/core/theme/app_colors.dart';
+import 'package:beardO/core/theme/app_colors.dart';
 
 class FancyBottomNavigation extends StatefulWidget {
   final int currentIndex;
@@ -39,19 +39,21 @@ class _FancyBottomNavigationState extends State<FancyBottomNavigation> {
   @override
   void initState() {
     super.initState();
-    _navBarItemKeys = List.generate(widget.items.length, (index) => GlobalKey());
+    _navBarItemKeys =
+        List.generate(widget.items.length, (index) => GlobalKey());
   }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
-    
+
     return Container(
       height: widget.height,
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       decoration: BoxDecoration(
-        color: widget.backgroundColor ?? (isDark ? AppColors.surfaceDark : Colors.white),
+        color: widget.backgroundColor ??
+            (isDark ? AppColors.surfaceDark : Colors.white),
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
@@ -78,15 +80,18 @@ class _FancyBottomNavigationState extends State<FancyBottomNavigation> {
   }
 
   Widget _buildIndicator() {
-    if (widget.currentIndex >= 0 && widget.currentIndex < _navBarItemKeys.length) {
+    if (widget.currentIndex >= 0 &&
+        widget.currentIndex < _navBarItemKeys.length) {
       final GlobalKey navBarItemKey = _navBarItemKeys[widget.currentIndex];
-      final RenderBox? renderBox = navBarItemKey.currentContext?.findRenderObject() as RenderBox?;
-      
+      final RenderBox? renderBox =
+          navBarItemKey.currentContext?.findRenderObject() as RenderBox?;
+
       if (renderBox != null) {
         final position = renderBox.localToGlobal(Offset.zero);
         final itemWidth = renderBox.size.width;
-        final itemCenterX = position.dx + itemWidth / 2 - MediaQuery.of(context).padding.left;
-        
+        final itemCenterX =
+            position.dx + itemWidth / 2 - MediaQuery.of(context).padding.left;
+
         return Positioned(
           top: 10,
           left: itemCenterX - 30,
@@ -103,7 +108,8 @@ class _FancyBottomNavigationState extends State<FancyBottomNavigation> {
                     width: 60,
                     height: 4,
                     decoration: BoxDecoration(
-                      color: widget.activeColor ?? Theme.of(context).colorScheme.primary,
+                      color: widget.activeColor ??
+                          Theme.of(context).colorScheme.primary,
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
@@ -121,8 +127,10 @@ class _FancyBottomNavigationState extends State<FancyBottomNavigation> {
     final bool isSelected = index == widget.currentIndex;
     final theme = Theme.of(context);
     final Color activeColor = widget.activeColor ?? theme.colorScheme.primary;
-    final Color inactiveColor = widget.inactiveColor ?? 
-        (theme.brightness == Brightness.dark ? AppColors.textSecondaryDark : AppColors.textSecondary);
+    final Color inactiveColor = widget.inactiveColor ??
+        (theme.brightness == Brightness.dark
+            ? AppColors.textSecondaryDark
+            : AppColors.textSecondary);
 
     return Expanded(
       key: _navBarItemKeys[index],
@@ -141,7 +149,8 @@ class _FancyBottomNavigationState extends State<FancyBottomNavigation> {
               AnimatedContainer(
                 duration: widget.animationDuration,
                 curve: widget.animationCurve,
-                transform: Matrix4.identity()..translate(0.0, isSelected ? -4.0 : 0.0),
+                transform: Matrix4.identity()
+                  ..translate(0.0, isSelected ? -4.0 : 0.0),
                 child: TweenAnimationBuilder<double>(
                   tween: Tween<double>(begin: 0.8, end: isSelected ? 1.0 : 0.8),
                   curve: widget.animationCurve,
@@ -150,7 +159,9 @@ class _FancyBottomNavigationState extends State<FancyBottomNavigation> {
                     return Transform.scale(
                       scale: value,
                       child: Icon(
-                        isSelected ? widget.items[index].activeIcon : widget.items[index].icon,
+                        isSelected
+                            ? widget.items[index].activeIcon
+                            : widget.items[index].icon,
                         color: isSelected ? activeColor : inactiveColor,
                         size: widget.iconSize,
                       ),

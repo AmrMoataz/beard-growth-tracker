@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:progress_tracker/core/widgets/animated_fade_in.dart';
-import 'package:progress_tracker/core/widgets/app_card.dart';
-import 'package:progress_tracker/core/widgets/background_gradient.dart';
-import 'package:progress_tracker/features/settings/domain/entities/app_settings.dart';
-import 'package:progress_tracker/features/settings/presentation/bloc/settings_bloc.dart';
-import 'package:progress_tracker/features/settings/presentation/bloc/settings_event.dart';
-import 'package:progress_tracker/features/settings/presentation/bloc/settings_state.dart';
+import 'package:beardO/core/widgets/animated_fade_in.dart';
+import 'package:beardO/core/widgets/app_card.dart';
+import 'package:beardO/core/widgets/background_gradient.dart';
+import 'package:beardO/features/settings/domain/entities/app_settings.dart';
+import 'package:beardO/features/settings/presentation/bloc/settings_bloc.dart';
+import 'package:beardO/features/settings/presentation/bloc/settings_event.dart';
+import 'package:beardO/features/settings/presentation/bloc/settings_state.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -15,7 +15,8 @@ class SettingsPage extends StatefulWidget {
   State<SettingsPage> createState() => _SettingsPageState();
 }
 
-class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderStateMixin {
+class _SettingsPageState extends State<SettingsPage>
+    with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _fadeAnimation;
 
@@ -114,11 +115,9 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
                         _buildSectionHeader(context, 'Appearance'),
                         _buildThemeSelector(context, settings),
                         const SizedBox(height: 24),
-                        
                         _buildSectionHeader(context, 'Notifications'),
                         _buildNotificationsToggle(context, settings),
                         const SizedBox(height: 24),
-                        
                         _buildSectionHeader(context, 'Calendar'),
                         _buildStartWeekDaySelector(context, settings),
                       ],
@@ -152,7 +151,8 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             child: Text(
               'Theme Mode',
               style: Theme.of(context).textTheme.titleMedium,
@@ -171,7 +171,9 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
             groupValue: settings.themePreference,
             onChanged: (ThemePreference? value) {
               if (value != null) {
-                context.read<SettingsBloc>().add(SaveThemePreferenceEvent(value));
+                context
+                    .read<SettingsBloc>()
+                    .add(SaveThemePreferenceEvent(value));
               }
             },
           ),
@@ -187,7 +189,9 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
             groupValue: settings.themePreference,
             onChanged: (ThemePreference? value) {
               if (value != null) {
-                context.read<SettingsBloc>().add(SaveThemePreferenceEvent(value));
+                context
+                    .read<SettingsBloc>()
+                    .add(SaveThemePreferenceEvent(value));
               }
             },
           ),
@@ -203,7 +207,9 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
             groupValue: settings.themePreference,
             onChanged: (ThemePreference? value) {
               if (value != null) {
-                context.read<SettingsBloc>().add(SaveThemePreferenceEvent(value));
+                context
+                    .read<SettingsBloc>()
+                    .add(SaveThemePreferenceEvent(value));
               }
             },
           ),
@@ -222,22 +228,27 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
             Text('Enable Notifications'),
           ],
         ),
-        subtitle: const Text('Get reminded morning and evening to track your progress'),
+        subtitle: const Text(
+            'Get reminded morning and evening to track your progress'),
         value: settings.notificationsEnabled,
         onChanged: (bool value) {
-          context.read<SettingsBloc>().add(SaveNotificationsEnabledEvent(value));
+          context
+              .read<SettingsBloc>()
+              .add(SaveNotificationsEnabledEvent(value));
         },
       ),
     );
   }
 
-  Widget _buildStartWeekDaySelector(BuildContext context, AppSettings settings) {
+  Widget _buildStartWeekDaySelector(
+      BuildContext context, AppSettings settings) {
     return AppCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             child: Text(
               'Start Week On',
               style: Theme.of(context).textTheme.titleMedium,
@@ -251,7 +262,9 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
               groupValue: settings.startWeekDay,
               onChanged: (StartWeekDay? value) {
                 if (value != null) {
-                  context.read<SettingsBloc>().add(SaveStartWeekDayEvent(value));
+                  context
+                      .read<SettingsBloc>()
+                      .add(SaveStartWeekDayEvent(value));
                 }
               },
             );

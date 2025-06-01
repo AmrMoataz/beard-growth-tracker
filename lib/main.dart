@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:progress_tracker/core/di/injection_container.dart' as di;
-import 'package:progress_tracker/core/widgets/splash_screen.dart';
+import 'package:beardO/core/di/injection_container.dart' as di;
+import 'package:beardO/core/widgets/splash_screen.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   // Initialize timezone data for notifications
   tz.initializeTimeZones();
-  
+
   // Set preferred orientations to portrait only
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  
+
   // Initialize dependency injection
   await di.init();
-  
+
   runApp(const MyApp());
 }
 
@@ -32,7 +32,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF8A2BE2), // Deep purple to match the beard icon
+          seedColor:
+              const Color(0xFF8A2BE2), // Deep purple to match the beard icon
           brightness: Brightness.light,
         ),
         useMaterial3: true,

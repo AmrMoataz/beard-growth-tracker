@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:progress_tracker/core/theme/app_colors.dart';
+import 'package:beardO/core/theme/app_colors.dart';
 
 enum CardVariant {
   primary,

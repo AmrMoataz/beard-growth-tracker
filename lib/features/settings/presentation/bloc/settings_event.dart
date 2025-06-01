@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:progress_tracker/features/settings/domain/entities/app_settings.dart';
+import 'package:beardO/features/settings/domain/entities/app_settings.dart';
 
 abstract class SettingsEvent extends Equatable {
   const SettingsEvent();

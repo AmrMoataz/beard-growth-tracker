@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:progress_tracker/core/theme/app_colors.dart';
-import 'package:progress_tracker/core/widgets/app_card.dart';
+import 'package:beardO/core/theme/app_colors.dart';
+import 'package:beardO/core/widgets/app_card.dart';
 
 /// A beautiful card with animated progress indicator
 class ProgressIndicatorCard extends StatelessWidget {

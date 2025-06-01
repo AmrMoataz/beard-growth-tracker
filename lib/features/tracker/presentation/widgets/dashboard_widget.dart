@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:progress_tracker/core/widgets/animated_fade_in.dart';
-import 'package:progress_tracker/core/widgets/background_gradient.dart';
-import 'package:progress_tracker/core/widgets/progress_entry_card.dart';
-import 'package:progress_tracker/core/widgets/progress_indicator_card.dart';
-import 'package:progress_tracker/features/tracker/domain/entities/progress_entry.dart';
-import 'package:progress_tracker/features/tracker/presentation/bloc/progress_bloc.dart';
-import 'package:progress_tracker/features/tracker/presentation/bloc/progress_event.dart';
-import 'package:progress_tracker/features/tracker/presentation/bloc/progress_state.dart';
+import 'package:beardO/core/widgets/animated_fade_in.dart';
+import 'package:beardO/core/widgets/background_gradient.dart';
+import 'package:beardO/core/widgets/progress_entry_card.dart';
+import 'package:beardO/core/widgets/progress_indicator_card.dart';
+import 'package:beardO/features/tracker/domain/entities/progress_entry.dart';
+import 'package:beardO/features/tracker/presentation/bloc/progress_bloc.dart';
+import 'package:beardO/features/tracker/presentation/bloc/progress_event.dart';
+import 'package:beardO/features/tracker/presentation/bloc/progress_state.dart';
 
 class DashboardWidget extends StatefulWidget {
   const DashboardWidget({super.key});

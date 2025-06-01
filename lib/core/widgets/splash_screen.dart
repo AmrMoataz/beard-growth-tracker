@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:progress_tracker/features/tracker/presentation/pages/home_page.dart';
+import 'package:beardO/features/tracker/presentation/pages/home_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -10,7 +10,8 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _animation;
 
@@ -21,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       vsync: this,
       duration: const Duration(milliseconds: 1500),
     );
-    
+
     _animation = CurvedAnimation(
       parent: _animationController,
       curve: Curves.easeInOut,
@@ -29,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
     // Start the animation
     _animationController.forward();
-    
+
     // Navigate to home page after delay
     Timer(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(

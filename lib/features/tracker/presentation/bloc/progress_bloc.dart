@@ -1,15 +1,15 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dartz/dartz.dart';
-import 'package:progress_tracker/core/error/failures.dart';
-import 'package:progress_tracker/features/tracker/domain/entities/progress_entry.dart';
-import 'package:progress_tracker/features/tracker/domain/usecases/get_completion_rate.dart';
-import 'package:progress_tracker/features/tracker/domain/usecases/get_progress_entries.dart';
-import 'package:progress_tracker/features/tracker/domain/usecases/get_progress_entry_by_date.dart';
-import 'package:progress_tracker/features/tracker/domain/usecases/save_progress_entry.dart';
-import 'package:progress_tracker/features/tracker/domain/usecases/save_progress_photo.dart';
-import 'package:progress_tracker/features/tracker/domain/usecases/update_progress_entry.dart';
-import 'package:progress_tracker/features/tracker/presentation/bloc/progress_event.dart';
-import 'package:progress_tracker/features/tracker/presentation/bloc/progress_state.dart';
+import 'package:beardO/core/error/failures.dart';
+import 'package:beardO/features/tracker/domain/entities/progress_entry.dart';
+import 'package:beardO/features/tracker/domain/usecases/get_completion_rate.dart';
+import 'package:beardO/features/tracker/domain/usecases/get_progress_entries.dart';
+import 'package:beardO/features/tracker/domain/usecases/get_progress_entry_by_date.dart';
+import 'package:beardO/features/tracker/domain/usecases/save_progress_entry.dart';
+import 'package:beardO/features/tracker/domain/usecases/save_progress_photo.dart';
+import 'package:beardO/features/tracker/domain/usecases/update_progress_entry.dart';
+import 'package:beardO/features/tracker/presentation/bloc/progress_event.dart';
+import 'package:beardO/features/tracker/presentation/bloc/progress_state.dart';
 
 class ProgressBloc extends Bloc<ProgressEvent, ProgressState> {
   final GetProgressEntries getProgressEntries;
@@ -176,33 +176,31 @@ class ProgressBloc extends Bloc<ProgressEvent, ProgressState> {
     );
 
     final result = await saveProgressEntry(newEntry);
-    await result.fold(
-      (failure) async {
-        emit(ProgressError(message: _mapFailureToMessage(failure)));
-      },
-      (entry) async {
-        _loadedEntries.add(entry);
-        emit(EntryCreated(entry: entry));
-        
-        // After creating entry, reload all entries
-        final entriesResult = await getProgressEntries();
-        entriesResult.fold(
-          (failure) => emit(ProgressError(message: _mapFailureToMessage(failure))),
+    await result.fold((failure) async {
+      emit(ProgressError(message: _mapFailureToMessage(failure)));
+    }, (entry) async {
+      _loadedEntries.add(entry);
+      emit(EntryCreated(entry: entry));
+
+      // After creating entry, reload all entries
+      final entriesResult = await getProgressEntries();
+      entriesResult.fold(
+          (failure) =>
+              emit(ProgressError(message: _mapFailureToMessage(failure))),
           (entries) {
-            _loadedEntries = entries;
-            emit(EntriesLoaded(entries: entries));
-          }
-        );
-        
-        // Also get the entry for the current date
-        final normalizedDate = DateTime(event.date.year, event.date.month, event.date.day);
-        final dateEntryResult = await getProgressEntryByDate(normalizedDate);
-        dateEntryResult.fold(
-          (failure) => emit(ProgressError(message: _mapFailureToMessage(failure))),
-          (dateEntry) => emit(EntryLoaded(entry: dateEntry))
-        );
-      }
-    );
+        _loadedEntries = entries;
+        emit(EntriesLoaded(entries: entries));
+      });
+
+      // Also get the entry for the current date
+      final normalizedDate =
+          DateTime(event.date.year, event.date.month, event.date.day);
+      final dateEntryResult = await getProgressEntryByDate(normalizedDate);
+      dateEntryResult.fold(
+          (failure) =>
+              emit(ProgressError(message: _mapFailureToMessage(failure))),
+          (dateEntry) => emit(EntryLoaded(entry: dateEntry)));
+    });
   }
 
   Future<void> _onDeleteProgressEntry(

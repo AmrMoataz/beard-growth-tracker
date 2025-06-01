@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
-import 'package:progress_tracker/core/error/failures.dart';
-import 'package:progress_tracker/features/tracker/domain/entities/progress_entry.dart';
+import 'package:beardO/core/error/failures.dart';
+import 'package:beardO/features/tracker/domain/entities/progress_entry.dart';
 
 abstract class ProgressRepository {
   Future<Either<Failure, List<ProgressEntry>>> getProgressEntries();

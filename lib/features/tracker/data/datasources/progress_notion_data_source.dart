@@ -3,8 +3,8 @@ import 'dart:io';
 
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
-import 'package:progress_tracker/features/tracker/data/datasources/progress_local_data_source.dart';
-import 'package:progress_tracker/features/tracker/data/models/progress_entry_model.dart';
+import 'package:beardO/features/tracker/data/datasources/progress_local_data_source.dart';
+import 'package:beardO/features/tracker/data/models/progress_entry_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProgressNotionDataSource implements ProgressLocalDataSource {
@@ -116,24 +116,16 @@ class ProgressNotionDataSource implements ProgressLocalDataSource {
         // Schema properties definition
         'properties': <String, dynamic>{
           // The Name property serves as the title column
-          'Name': <String, dynamic>{
-            'title': <String, dynamic>{}
-          },
-          'Date': <String, dynamic>{
-            'date': <String, dynamic>{}
-          },
+          'Name': <String, dynamic>{'title': <String, dynamic>{}},
+          'Date': <String, dynamic>{'date': <String, dynamic>{}},
           'Morning Application': <String, dynamic>{
             'checkbox': <String, dynamic>{}
           },
           'Evening Application': <String, dynamic>{
             'checkbox': <String, dynamic>{}
           },
-          'Notes': <String, dynamic>{
-            'rich_text': <String, dynamic>{}
-          },
-          'Photo URL': <String, dynamic>{
-            'url': <String, dynamic>{}
-          },
+          'Notes': <String, dynamic>{'rich_text': <String, dynamic>{}},
+          'Photo URL': <String, dynamic>{'url': <String, dynamic>{}},
         },
       }),
     );
@@ -227,8 +219,9 @@ class ProgressNotionDataSource implements ProgressLocalDataSource {
   /// Create properties for a Notion page from a ProgressEntryModel
   Map<String, dynamic> _progressEntryToProperties(ProgressEntryModel entry) {
     // Format the date as a title for the entry
-    final formattedDate = '${entry.date.year}-${entry.date.month.toString().padLeft(2, '0')}-${entry.date.day.toString().padLeft(2, '0')}';
-  
+    final formattedDate =
+        '${entry.date.year}-${entry.date.month.toString().padLeft(2, '0')}-${entry.date.day.toString().padLeft(2, '0')}';
+
     return <String, dynamic>{
       // Add a title property (using the date as the title)
       'Name': <String, dynamic>{

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
-import 'package:progress_tracker/core/widgets/app_card.dart';
-import 'package:progress_tracker/features/tracker/domain/entities/progress_entry.dart';
-import 'package:progress_tracker/core/widgets/photo_viewer.dart';
-import 'package:progress_tracker/core/widgets/progress_entry_card.dart';
-import 'package:progress_tracker/features/tracker/presentation/bloc/progress_bloc.dart';
+import 'package:beardO/core/widgets/app_card.dart';
+import 'package:beardO/features/tracker/domain/entities/progress_entry.dart';
+import 'package:beardO/core/widgets/photo_viewer.dart';
+import 'package:beardO/core/widgets/progress_entry_card.dart';
+import 'package:beardO/features/tracker/presentation/bloc/progress_bloc.dart';
 
 /// A simple read-only card to display progress entry information
 /// Used for calendar view and history displays where editing is not required

@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
-import 'package:progress_tracker/core/theme/app_colors.dart';
-import 'package:progress_tracker/core/widgets/animated_fade_in.dart';
-import 'package:progress_tracker/core/widgets/app_card.dart';
-import 'package:progress_tracker/core/widgets/photo_viewer.dart';
-import 'package:progress_tracker/features/tracker/domain/entities/progress_entry.dart';
-import 'package:progress_tracker/features/tracker/presentation/bloc/progress_bloc.dart';
-import 'package:progress_tracker/features/tracker/presentation/bloc/progress_event.dart';
-import 'package:progress_tracker/features/tracker/presentation/bloc/progress_state.dart';
+import 'package:beardO/core/theme/app_colors.dart';
+import 'package:beardO/core/widgets/animated_fade_in.dart';
+import 'package:beardO/core/widgets/app_card.dart';
+import 'package:beardO/core/widgets/photo_viewer.dart';
+import 'package:beardO/features/tracker/domain/entities/progress_entry.dart';
+import 'package:beardO/features/tracker/presentation/bloc/progress_bloc.dart';
+import 'package:beardO/features/tracker/presentation/bloc/progress_event.dart';
+import 'package:beardO/features/tracker/presentation/bloc/progress_state.dart';
 
 /// A beautiful animated card to display progress entry information with editing capabilities
 class ProgressEntryCard extends StatefulWidget {

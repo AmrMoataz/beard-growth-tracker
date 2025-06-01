@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:progress_tracker/core/theme/app_colors.dart';
+import 'package:beardO/core/theme/app_colors.dart';
 import 'package:intl/intl.dart';
 
 class FancyCalendar<T> extends StatelessWidget {

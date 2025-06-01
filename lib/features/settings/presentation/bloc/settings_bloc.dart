@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:progress_tracker/features/settings/domain/entities/app_settings.dart';
-import 'package:progress_tracker/features/settings/domain/repositories/settings_repository.dart';
-import 'package:progress_tracker/features/settings/presentation/bloc/settings_event.dart';
-import 'package:progress_tracker/features/settings/presentation/bloc/settings_state.dart';
+import 'package:beardO/features/settings/domain/entities/app_settings.dart';
+import 'package:beardO/features/settings/domain/repositories/settings_repository.dart';
+import 'package:beardO/features/settings/presentation/bloc/settings_event.dart';
+import 'package:beardO/features/settings/presentation/bloc/settings_state.dart';
 
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   final SettingsRepository _settingsRepository;

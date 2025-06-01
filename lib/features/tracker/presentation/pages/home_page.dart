@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:progress_tracker/core/di/injection_container.dart' as di;
-import 'package:progress_tracker/core/utils/notification_service.dart';
-import 'package:progress_tracker/core/widgets/animated_fade_in.dart';
-import 'package:progress_tracker/core/widgets/app_bar_with_backdrop.dart';
-import 'package:progress_tracker/core/widgets/background_gradient.dart';
-import 'package:progress_tracker/core/widgets/fancy_bottom_navigation.dart';
-import 'package:progress_tracker/core/widgets/progress_entry_card.dart';
-import 'package:progress_tracker/features/settings/presentation/pages/settings_page.dart';
-import 'package:progress_tracker/features/tracker/presentation/bloc/progress_bloc.dart';
-import 'package:progress_tracker/features/tracker/presentation/bloc/progress_event.dart';
-import 'package:progress_tracker/features/tracker/presentation/bloc/progress_state.dart';
-import 'package:progress_tracker/features/tracker/presentation/widgets/dashboard_widget.dart';
-import 'package:progress_tracker/features/tracker/presentation/widgets/progress_calendar.dart';
+import 'package:beardO/core/di/injection_container.dart' as di;
+import 'package:beardO/core/utils/notification_service.dart';
+import 'package:beardO/core/widgets/animated_fade_in.dart';
+import 'package:beardO/core/widgets/app_bar_with_backdrop.dart';
+import 'package:beardO/core/widgets/background_gradient.dart';
+import 'package:beardO/core/widgets/fancy_bottom_navigation.dart';
+import 'package:beardO/core/widgets/progress_entry_card.dart';
+import 'package:beardO/features/settings/presentation/pages/settings_page.dart';
+import 'package:beardO/features/tracker/presentation/bloc/progress_bloc.dart';
+import 'package:beardO/features/tracker/presentation/bloc/progress_event.dart';
+import 'package:beardO/features/tracker/presentation/bloc/progress_state.dart';
+import 'package:beardO/features/tracker/presentation/widgets/dashboard_widget.dart';
+import 'package:beardO/features/tracker/presentation/widgets/progress_calendar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

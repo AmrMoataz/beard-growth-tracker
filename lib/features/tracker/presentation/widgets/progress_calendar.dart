@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:progress_tracker/core/widgets/animated_progress_button.dart';
-import 'package:progress_tracker/core/widgets/app_card.dart';
-import 'package:progress_tracker/core/widgets/background_gradient.dart';
-import 'package:progress_tracker/core/widgets/fancy_calendar.dart';
-import 'package:progress_tracker/core/widgets/progress_entry_view_card.dart';
-import 'package:progress_tracker/features/settings/domain/entities/app_settings.dart';
-import 'package:progress_tracker/features/settings/presentation/bloc/settings_bloc.dart';
-import 'package:progress_tracker/features/settings/presentation/bloc/settings_state.dart';
-import 'package:progress_tracker/features/tracker/domain/entities/progress_entry.dart';
-import 'package:progress_tracker/features/tracker/presentation/bloc/progress_bloc.dart';
-import 'package:progress_tracker/features/tracker/presentation/bloc/progress_event.dart';
-import 'package:progress_tracker/features/tracker/presentation/bloc/progress_state.dart';
+import 'package:beardO/core/widgets/animated_progress_button.dart';
+import 'package:beardO/core/widgets/app_card.dart';
+import 'package:beardO/core/widgets/background_gradient.dart';
+import 'package:beardO/core/widgets/fancy_calendar.dart';
+import 'package:beardO/core/widgets/progress_entry_view_card.dart';
+import 'package:beardO/features/settings/domain/entities/app_settings.dart';
+import 'package:beardO/features/settings/presentation/bloc/settings_bloc.dart';
+import 'package:beardO/features/settings/presentation/bloc/settings_state.dart';
+import 'package:beardO/features/tracker/domain/entities/progress_entry.dart';
+import 'package:beardO/features/tracker/presentation/bloc/progress_bloc.dart';
+import 'package:beardO/features/tracker/presentation/bloc/progress_event.dart';
+import 'package:beardO/features/tracker/presentation/bloc/progress_state.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class ProgressCalendar extends StatefulWidget {
@@ -84,40 +84,39 @@ class _ProgressCalendarState extends State<ProgressCalendar> {
           animate: true,
           child: Container(), // Empty container as required child
         ),
-        
-        BlocConsumer<ProgressBloc, ProgressState>(
-      listener: (context, state) {
-        if (state is EntriesLoaded) {
-          // Convert entries to event map format
-          final eventMap = <DateTime, List<ProgressEntry>>{};
-          for (final entry in state.entries) {
-            final date =
-                DateTime(entry.date.year, entry.date.month, entry.date.day);
-            if (eventMap[date] == null) {
-              eventMap[date] = [entry];
-            } else {
-              eventMap[date]!.add(entry);
-            }
-          }
-          setState(() {
-            _events = eventMap;
-          });
-        }
-      },
-      builder: (context, state) {
-        return Column(
-          children: [
-            const SizedBox(height: 16),
-            _buildCalendar(),
-            const SizedBox(height: 8),
-            Expanded(
-              child: _buildSelectedDayInfo(state),
-            ),
-          ],
-        );
-      },
-    ),
 
+        BlocConsumer<ProgressBloc, ProgressState>(
+          listener: (context, state) {
+            if (state is EntriesLoaded) {
+              // Convert entries to event map format
+              final eventMap = <DateTime, List<ProgressEntry>>{};
+              for (final entry in state.entries) {
+                final date =
+                    DateTime(entry.date.year, entry.date.month, entry.date.day);
+                if (eventMap[date] == null) {
+                  eventMap[date] = [entry];
+                } else {
+                  eventMap[date]!.add(entry);
+                }
+              }
+              setState(() {
+                _events = eventMap;
+              });
+            }
+          },
+          builder: (context, state) {
+            return Column(
+              children: [
+                const SizedBox(height: 16),
+                _buildCalendar(),
+                const SizedBox(height: 8),
+                Expanded(
+                  child: _buildSelectedDayInfo(state),
+                ),
+              ],
+            );
+          },
+        ),
       ],
     );
   }
@@ -130,7 +129,7 @@ class _ProgressCalendarState extends State<ProgressCalendar> {
           // Get starting day of week from settings
           // Now that FancyCalendar supports startingDayOfWeek, get it from settings
           final startDay = _getStartingDayOfWeek(context);
-          
+
           return FancyCalendar<ProgressEntry>(
             firstDay: DateTime.utc(2023, 1, 1),
             lastDay: DateTime.utc(2030, 12, 31),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:progress_tracker/core/theme/app_colors.dart';
-import 'package:progress_tracker/core/theme/app_typography.dart';
+import 'package:beardO/core/theme/app_colors.dart';
+import 'package:beardO/core/theme/app_typography.dart';
 
 /// Defines the application theme and provides both light and dark variants
 class AppTheme {
@@ -45,15 +45,21 @@ class AppTheme {
         headlineLarge: AppTypography.h2.copyWith(color: AppColors.textPrimary),
         headlineMedium: AppTypography.h3.copyWith(color: AppColors.textPrimary),
         headlineSmall: AppTypography.h4.copyWith(color: AppColors.textPrimary),
-        titleLarge: AppTypography.subtitle1.copyWith(color: AppColors.textPrimary),
-        titleMedium: AppTypography.subtitle2.copyWith(color: AppColors.textPrimary),
-        titleSmall: AppTypography.subtitle2.copyWith(color: AppColors.textSecondary, fontSize: 13),
+        titleLarge:
+            AppTypography.subtitle1.copyWith(color: AppColors.textPrimary),
+        titleMedium:
+            AppTypography.subtitle2.copyWith(color: AppColors.textPrimary),
+        titleSmall: AppTypography.subtitle2
+            .copyWith(color: AppColors.textSecondary, fontSize: 13),
         bodyLarge: AppTypography.body1.copyWith(color: AppColors.textPrimary),
         bodyMedium: AppTypography.body2.copyWith(color: AppColors.textPrimary),
-        bodySmall: AppTypography.caption.copyWith(color: AppColors.textSecondary),
+        bodySmall:
+            AppTypography.caption.copyWith(color: AppColors.textSecondary),
         labelLarge: AppTypography.button.copyWith(color: AppColors.textPrimary),
-        labelMedium: AppTypography.caption.copyWith(color: AppColors.textSecondary),
-        labelSmall: AppTypography.overline.copyWith(color: AppColors.textSecondary),
+        labelMedium:
+            AppTypography.caption.copyWith(color: AppColors.textSecondary),
+        labelSmall:
+            AppTypography.overline.copyWith(color: AppColors.textSecondary),
       ),
       // Card theme
       cardTheme: CardTheme(
@@ -83,7 +89,8 @@ class AppTheme {
         backgroundColor: AppColors.surface,
         selectedItemColor: AppColors.primary,
         unselectedItemColor: AppColors.textSecondary,
-        selectedLabelStyle: AppTypography.caption.copyWith(fontWeight: FontWeight.w600),
+        selectedLabelStyle:
+            AppTypography.caption.copyWith(fontWeight: FontWeight.w600),
         unselectedLabelStyle: AppTypography.caption,
         showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,
@@ -98,7 +105,8 @@ class AppTheme {
           elevation: 2,
           shadowColor: AppColors.shadow,
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         ),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
@@ -107,7 +115,8 @@ class AppTheme {
           textStyle: AppTypography.button,
           side: const BorderSide(color: AppColors.primary, width: 1.5),
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         ),
       ),
       textButtonTheme: TextButtonThemeData(
@@ -115,7 +124,8 @@ class AppTheme {
           foregroundColor: AppColors.primary,
           textStyle: AppTypography.button,
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         ),
       ),
       // Input decoration theme
@@ -167,7 +177,8 @@ class AppTheme {
         thumbColor: AppColors.primary,
         overlayColor: AppColors.primary.withOpacity(0.2),
         valueIndicatorColor: AppColors.primary,
-        valueIndicatorTextStyle: AppTypography.caption.copyWith(color: Colors.white),
+        valueIndicatorTextStyle:
+            AppTypography.caption.copyWith(color: Colors.white),
       ),
       // Switch theme
       switchTheme: SwitchThemeData(
@@ -209,7 +220,8 @@ class AppTheme {
         elevation: 8,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         titleTextStyle: AppTypography.h3.copyWith(color: AppColors.textPrimary),
-        contentTextStyle: AppTypography.body1.copyWith(color: AppColors.textPrimary),
+        contentTextStyle:
+            AppTypography.body1.copyWith(color: AppColors.textPrimary),
       ),
       // Snackbar theme
       snackBarTheme: SnackBarThemeData(
@@ -226,8 +238,10 @@ class AppTheme {
         selectedColor: AppColors.primaryLight,
         secondarySelectedColor: AppColors.secondaryLight,
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        labelStyle: AppTypography.caption.copyWith(color: AppColors.textPrimary),
-        secondaryLabelStyle: AppTypography.caption.copyWith(color: AppColors.textPrimary),
+        labelStyle:
+            AppTypography.caption.copyWith(color: AppColors.textPrimary),
+        secondaryLabelStyle:
+            AppTypography.caption.copyWith(color: AppColors.textPrimary),
         brightness: Brightness.light,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),
@@ -277,21 +291,36 @@ class AppTheme {
       ),
       // Text theme
       textTheme: TextTheme(
-        displayLarge: AppTypography.h1.copyWith(color: AppColors.textPrimaryDark),
-        displayMedium: AppTypography.h2.copyWith(color: AppColors.textPrimaryDark),
-        displaySmall: AppTypography.h3.copyWith(color: AppColors.textPrimaryDark),
-        headlineLarge: AppTypography.h2.copyWith(color: AppColors.textPrimaryDark),
-        headlineMedium: AppTypography.h3.copyWith(color: AppColors.textPrimaryDark),
-        headlineSmall: AppTypography.h4.copyWith(color: AppColors.textPrimaryDark),
-        titleLarge: AppTypography.subtitle1.copyWith(color: AppColors.textPrimaryDark),
-        titleMedium: AppTypography.subtitle2.copyWith(color: AppColors.textPrimaryDark),
-        titleSmall: AppTypography.subtitle2.copyWith(color: AppColors.textSecondaryDark, fontSize: 13),
-        bodyLarge: AppTypography.body1.copyWith(color: AppColors.textPrimaryDark),
-        bodyMedium: AppTypography.body2.copyWith(color: AppColors.textPrimaryDark),
-        bodySmall: AppTypography.caption.copyWith(color: AppColors.textSecondaryDark),
-        labelLarge: AppTypography.button.copyWith(color: AppColors.textPrimaryDark),
-        labelMedium: AppTypography.caption.copyWith(color: AppColors.textSecondaryDark),
-        labelSmall: AppTypography.overline.copyWith(color: AppColors.textSecondaryDark),
+        displayLarge:
+            AppTypography.h1.copyWith(color: AppColors.textPrimaryDark),
+        displayMedium:
+            AppTypography.h2.copyWith(color: AppColors.textPrimaryDark),
+        displaySmall:
+            AppTypography.h3.copyWith(color: AppColors.textPrimaryDark),
+        headlineLarge:
+            AppTypography.h2.copyWith(color: AppColors.textPrimaryDark),
+        headlineMedium:
+            AppTypography.h3.copyWith(color: AppColors.textPrimaryDark),
+        headlineSmall:
+            AppTypography.h4.copyWith(color: AppColors.textPrimaryDark),
+        titleLarge:
+            AppTypography.subtitle1.copyWith(color: AppColors.textPrimaryDark),
+        titleMedium:
+            AppTypography.subtitle2.copyWith(color: AppColors.textPrimaryDark),
+        titleSmall: AppTypography.subtitle2
+            .copyWith(color: AppColors.textSecondaryDark, fontSize: 13),
+        bodyLarge:
+            AppTypography.body1.copyWith(color: AppColors.textPrimaryDark),
+        bodyMedium:
+            AppTypography.body2.copyWith(color: AppColors.textPrimaryDark),
+        bodySmall:
+            AppTypography.caption.copyWith(color: AppColors.textSecondaryDark),
+        labelLarge:
+            AppTypography.button.copyWith(color: AppColors.textPrimaryDark),
+        labelMedium:
+            AppTypography.caption.copyWith(color: AppColors.textSecondaryDark),
+        labelSmall:
+            AppTypography.overline.copyWith(color: AppColors.textSecondaryDark),
       ),
       // Card theme
       cardTheme: CardTheme(
@@ -308,7 +337,8 @@ class AppTheme {
         foregroundColor: AppColors.textPrimaryDark,
         elevation: 0,
         centerTitle: true,
-        titleTextStyle: AppTypography.h4.copyWith(color: AppColors.textPrimaryDark),
+        titleTextStyle:
+            AppTypography.h4.copyWith(color: AppColors.textPrimaryDark),
         iconTheme: IconThemeData(color: AppColors.textPrimaryDark),
         actionsIconTheme: IconThemeData(color: AppColors.textPrimaryDark),
         systemOverlayStyle: SystemUiOverlayStyle.light.copyWith(
@@ -321,7 +351,8 @@ class AppTheme {
         backgroundColor: AppColors.surfaceDark,
         selectedItemColor: AppColors.primary,
         unselectedItemColor: AppColors.textSecondaryDark,
-        selectedLabelStyle: AppTypography.caption.copyWith(fontWeight: FontWeight.w600),
+        selectedLabelStyle:
+            AppTypography.caption.copyWith(fontWeight: FontWeight.w600),
         unselectedLabelStyle: AppTypography.caption,
         showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,
@@ -336,7 +367,8 @@ class AppTheme {
           elevation: 2,
           shadowColor: AppColors.shadowDark,
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         ),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
@@ -345,7 +377,8 @@ class AppTheme {
           textStyle: AppTypography.button,
           side: const BorderSide(color: AppColors.primary, width: 1.5),
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         ),
       ),
       textButtonTheme: TextButtonThemeData(
@@ -353,7 +386,8 @@ class AppTheme {
           foregroundColor: AppColors.primary,
           textStyle: AppTypography.button,
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         ),
       ),
       // Input decoration theme
@@ -405,7 +439,8 @@ class AppTheme {
         thumbColor: AppColors.primary,
         overlayColor: AppColors.primary.withOpacity(0.2),
         valueIndicatorColor: AppColors.primary,
-        valueIndicatorTextStyle: AppTypography.caption.copyWith(color: Colors.white),
+        valueIndicatorTextStyle:
+            AppTypography.caption.copyWith(color: Colors.white),
       ),
       // Switch theme
       switchTheme: SwitchThemeData(
@@ -446,13 +481,16 @@ class AppTheme {
         backgroundColor: AppColors.surfaceDark,
         elevation: 8,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        titleTextStyle: AppTypography.h3.copyWith(color: AppColors.textPrimaryDark),
-        contentTextStyle: AppTypography.body1.copyWith(color: AppColors.textPrimaryDark),
+        titleTextStyle:
+            AppTypography.h3.copyWith(color: AppColors.textPrimaryDark),
+        contentTextStyle:
+            AppTypography.body1.copyWith(color: AppColors.textPrimaryDark),
       ),
       // Snackbar theme
       snackBarTheme: SnackBarThemeData(
         backgroundColor: AppColors.surface.withOpacity(0.9),
-        contentTextStyle: AppTypography.body2.copyWith(color: AppColors.textPrimary),
+        contentTextStyle:
+            AppTypography.body2.copyWith(color: AppColors.textPrimary),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         behavior: SnackBarBehavior.floating,
         elevation: 4,
@@ -464,8 +502,10 @@ class AppTheme {
         selectedColor: AppColors.primaryLight,
         secondarySelectedColor: AppColors.secondaryLight,
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        labelStyle: AppTypography.caption.copyWith(color: AppColors.textPrimaryDark),
-        secondaryLabelStyle: AppTypography.caption.copyWith(color: AppColors.textPrimaryDark),
+        labelStyle:
+            AppTypography.caption.copyWith(color: AppColors.textPrimaryDark),
+        secondaryLabelStyle:
+            AppTypography.caption.copyWith(color: AppColors.textPrimaryDark),
         brightness: Brightness.dark,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),

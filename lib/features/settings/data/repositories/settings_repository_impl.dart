@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:progress_tracker/features/settings/domain/entities/app_settings.dart';
-import 'package:progress_tracker/features/settings/domain/repositories/settings_repository.dart';
+import 'package:beardO/features/settings/domain/entities/app_settings.dart';
+import 'package:beardO/features/settings/domain/repositories/settings_repository.dart';
 
 class SettingsRepositoryImpl implements SettingsRepository {
   final SharedPreferences _prefs;
@@ -15,14 +15,17 @@ class SettingsRepositoryImpl implements SettingsRepository {
   @override
   Future<AppSettings> getSettings() async {
     // Get theme preference (default: system)
-    final themeIndex = _prefs.getInt(_themePreferenceKey) ?? ThemePreference.system.index;
+    final themeIndex =
+        _prefs.getInt(_themePreferenceKey) ?? ThemePreference.system.index;
     final themePreference = ThemePreference.values[themeIndex];
 
     // Get notifications enabled (default: true)
-    final notificationsEnabled = _prefs.getBool(_notificationsEnabledKey) ?? true;
+    final notificationsEnabled =
+        _prefs.getBool(_notificationsEnabledKey) ?? true;
 
     // Get start week day (default: monday)
-    final startWeekDayIndex = _prefs.getInt(_startWeekDayKey) ?? StartWeekDay.monday.index;
+    final startWeekDayIndex =
+        _prefs.getInt(_startWeekDayKey) ?? StartWeekDay.monday.index;
     final startWeekDay = StartWeekDay.values[startWeekDayIndex];
 
     return AppSettings(
@@ -35,7 +38,8 @@ class SettingsRepositoryImpl implements SettingsRepository {
   @override
   Future<void> saveSettings(AppSettings settings) async {
     await _prefs.setInt(_themePreferenceKey, settings.themePreference.index);
-    await _prefs.setBool(_notificationsEnabledKey, settings.notificationsEnabled);
+    await _prefs.setBool(
+        _notificationsEnabledKey, settings.notificationsEnabled);
     await _prefs.setInt(_startWeekDayKey, settings.startWeekDay.index);
   }
 
